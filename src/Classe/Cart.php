@@ -46,5 +46,6 @@ Class Cart
         unset($cart[$id]);
 
         return $this->session->set('cart', $cart);
+        //test
     }
 }

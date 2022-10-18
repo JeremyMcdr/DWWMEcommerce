@@ -1,0 +1,51 @@
+body
+{
+    position: relative;
+}
+
+.navbar-item-custom, .navbar-item-custom a
+{
+    color: #ffffff;
+}
+
+body
+{
+    background-color: #ffffff;
+}
+main .footer-custom
+{
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    padding-top: 25px;
+}
+.product-item
+{
+    margin-top: 15px;
+}
+
+.product-item h5
+{
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+.product-item .product-subtitle{
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-item .product-price
+{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-single-page
+{
+    font-size: 19px;
+}

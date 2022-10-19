@@ -12,8 +12,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class CartController extends AbstractController
 {
-    private $entityManager;
-
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -23,25 +21,14 @@ class CartController extends AbstractController
     #[Route('/mon-panier', name: 'app_cart')]
     public function index(RequestStack $stack, Cart $cart): Response
     {
-        $cartComplete = [];
 
-        if($cart->get())
-        {
-            foreach ($cart->get() as $id=>$quantity)
-            {
-                $cartComplete[] = [
-                    'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
-                    'quantity'=> $quantity,
-                ];
-            }
-        }
 
 
         //dd($cartComplete);hyfjg
         //dd($stack->getSession()->get('cart'));
         return $this->render('cart/index.html.twig',
         [
-            'cart'=>$cartComplete
+            'cart'=>$cart->getFull()
         ]);
     }
 

@@ -11,7 +11,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col"> </th>
+            <th scope="col"></th>
             <th scope="col">Produit</th>
             <th scope="col">Quantité</th>
             <th scope="col">Prix</th>
@@ -27,7 +27,17 @@
             <td>{{ product.product.name }}<br>
             <small>{{ product.product.subtitle }}</small>
             </td>
-            <td>{{ product.quantity }}</td>
+            <td>
+                <a href="{{ path('decrease_to_cart' , {id : product.product.id} )}}">
+                    <img src="{{ asset('assets/img/minus-sign.png') }}" height="12px" alt="Retirer un produit">
+                </a>
+           {{ product.quantity }}
+
+                <a href="{{ path('add_to_cart' , {id : product.product.id} )}}">
+                    <img src="{{ asset('assets/img/plus-symbole-noir.png') }}" height="12px" alt="Ajouter un produit">
+                </a>
+            </td>
+
             <td>{{ product.product.price / 100|number_format(2) }}€</td>
             <td>{{ (product.product.price * product.quantity) / 100|number_format(2) }}€</td>
             <td>

@@ -48,4 +48,9 @@ Class Cart
         return $this->session->set('cart', $cart);
         //test
     }
+
+    public function  decrease($id)
+    {
+        //vérifier si la quantité de notre produit = 1;
+    }
 }

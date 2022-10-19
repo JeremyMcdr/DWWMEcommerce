@@ -51,6 +51,18 @@ Class Cart
 
     public function  decrease($id)
     {
+        $cart = $this->session->get('cart', []);
         //vérifier si la quantité de notre produit = 1;
+
+        if($cart[$id]>1)
+        {
+            //retirer une quantité
+            $cart[$id]--;
+        }else{
+            //supprimer mon produits
+            unset($cart[$id]);
+        }
+        return $this->session->set('cart', $cart);
+
     }
 }

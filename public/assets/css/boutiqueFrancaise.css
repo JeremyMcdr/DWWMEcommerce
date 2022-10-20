@@ -49,3 +49,9 @@ main .footer-custom
 {
     font-size: 19px;
 }
+
+.block-small
+{
+    max-width: 600px;
+    margin: 0 auto;
+}

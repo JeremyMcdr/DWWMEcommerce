@@ -49,6 +49,7 @@ class RegisterController extends AbstractController
             
             //$doctrine->persist($user);
             //$doctrine->flush();
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('register/index.html.twig',[

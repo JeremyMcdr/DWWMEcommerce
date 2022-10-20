@@ -55,3 +55,20 @@ main .footer-custom
     max-width: 600px;
     margin: 0 auto;
 }
+
+.form-check
+{
+    background-color: #c6e7ff;
+    color: black;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+
+.order-summary
+{
+    background-color: #c6e7ff;
+    padding: 20px;
+    margin-top: 22px;
+}
+
+

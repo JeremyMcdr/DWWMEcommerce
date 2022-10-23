@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
@@ -37,6 +39,9 @@ class Order
 
     #[ORM\OneToMany(mappedBy: 'myOrder', targetEntity: OrderDetails::class)]
     private Collection $orderDetails;
+
+    #[ORM\Column(length: 255)]
+    private ?string $reference;
 
     public function __construct()
     {
@@ -131,7 +136,7 @@ class Order
     public function addOrderDetail(OrderDetails $orderDetail): self
     {
         if (!$this->orderDetails->contains($orderDetail)) {
-            $this->orderDetails->add($orderDetail);
+            $this->orderDetails[] = $orderDetail;
             $orderDetail->setMyOrder($this);
         }
 
@@ -146,6 +151,20 @@ class Order
                 $orderDetail->setMyOrder(null);
             }
         }
+
+        return $this;
+    }
+
+
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }

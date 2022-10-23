@@ -75,6 +75,8 @@ class OrderController extends AbstractController
             //enregistrer ma commande : Order()
             $order = new Order();
             $order->setUser($this->getUser());
+            $reference = $date->format('dmy').'-'.uniqid();
+            $order->setReference($reference);
             $order->setCreatedAt($date);
             $order->setCarrierName($carriers->getName());
             $order->setCarrierPrice($carriers->getPrice());
@@ -100,7 +102,8 @@ class OrderController extends AbstractController
                 [
                     'cart'=>$cart->getFull(),
                     'carrier'=>$carriers,
-                    'delivery'=>$delivery_content
+                    'delivery'=>$delivery_content,
+                    'reference'=>$order->getReference(),
                 ]);
         //$this->entityManager->flush();
         }

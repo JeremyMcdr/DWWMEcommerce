@@ -1,66 +1,71 @@
 {% extends 'base.html.twig' %}
+     
+    {% block javascript %}
+    <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+     
+    {% block title %}La boutique Française - Paiement de ma commande{% endblock %}
+     
+    {% block content %}
+        <h1>Mon récapitulatif</h1>
+        <p>Vérifiez vos informations avant de payer votre commande.</p>
+        <hr>
+        <div class="row">
 
-{% block title %}Paiement de ma commande{% endblock %}
+            <div class="col-md-6">
+                <strong>Mon adresse de livraison</strong><br/>
+                <div class="form-check mt-3">
+                    {{ delivery|raw }}
+                </div>
 
-{% block content %}
-    <h2>Mon récapitulatif</h2>
-    <p></p>
-    <hr>
-    <div class="row">
-        <div class="col-md-6">
-            <strong>Mon addresse de livraison</strong><br/>
-            <div class="form-check mt-5">
-            {{ delivery|raw }}<br/>
+                <hr>
+                <strong>Transporteur</strong><br/>
+                <div class="form-check">
+                    {{ carrier.name }}<br/>
+                    {{ carrier.description }}<br/>
+                    {{ carrier.price | number_format(2, ',', '.') }}€
+                </div>
+
             </div>
-            <hr>
-            <strong>Mon transporteur</strong><br/>
-            <div class="form-check">
-            {{ carrier.name }}<br/>
-            {{ carrier.description }}<br/>
-            {{ carrier.price|number_format(2) }}
-            </div>
 
+            <div class="col-md-6">
+                <div class="text-center">
+                    <b>Ma commande</b>
+                </div>
+                <div class="order-summary">
+
+                    {% set total = null %}
+
+                    {% for key, product in cart %}
+                        <div class="row {% if key > 0 %}mt-2{% endif %}">
+                            <div class="col-3">
+                                <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="75px">
+                            </div>
+                            <div class="col-7 my-auto">
+                                {{ product.product.name }}
+                                <br/>
+                                <small>
+                                    {{ product.product.subtitle }}
+                                    <br/>
+                                    x {{ product.quantity }}
+                                </small>
+                            </div>
+                            <div class="col-2 my-auto">
+                                {{ ((product.product.price * product.quantity) / 100) | number_format(2, ',', '.') }}€
+                            </div>
+                        </div>
+
+                        {% set total = total + (product.product.price * product.quantity) %}
+
+                    {% endfor %}
+                </div>
+
+                <hr>
+                <strong>Sous-total :</strong> {{ (total / 100) | number_format(2, ',', '.') }}€ <br/>
+                <strong>Livraison :</strong> {{ (carrier.price) | number_format(2, ',', '.') }}€
+                <hr>
+                <strong>Total : </strong> {{ ((total / 100) + carrier.price) | number_format(2, ',', '.') }}€
+                <a href="{{ path('stripe_create_session', {'reference': reference}) }}" class="btn btn-success btn-block mt-3">Payer | {{ ((total / 100) + carrier.price) | number_format(2, ',', '.') }} €</a>
+            </div>
         </div>
-        <div class="col-md-6">
-            <div class="text-center">
-                <b>Ma commande</b>
-                <p>Retrouver le récapitulatif de vos produit</p>
-            </div>
-
-
-            <div class="order-summary">
-                {% set total = null %}
-                {% for key in cart %}
-
-                    <div class="row{% if key > 0 %}mt-2{% endif %} ">
-                        <div class="col-2">
-                            <img src="/uploads/{{key.product.illustration }}" alt="{{ key.product.name }}" height="100px">
-                        </div>
-                        <div class="col-8 my-auto">
-                            {{ key.product.name }}
-                            <small>{{ key.product.subtitle }}
-                            <br/>
-                                x {{ key.quantity }}
-                            </small>
-                        </div>
-                        <div class="col-2 my-auto">
-                            {{ (key.product.price * key.quantity) / 100|number_format(2) }}€
-                        </div>
-                    </div>
-                    {% set total = total + (key.product.price * key.quantity) %}
-                {% endfor %}
-            </div>
-
-            <hr>
-            <strong>Sous-total : </strong>  {{ (total) / 100|number_format(2) }}€ <br/>
-            <strong>Livraison : </strong> {{ (carrier.price)|number_format(2) }}€ <br/>
-            <hr>
-            <strong>Total : </strong> {{ ((total / 100)+carrier.price)|number_format(2) }}€ <br/>
-            <hr>
-
-
-            <a href="" class="btn btn-success btn-block mt-3">Payer {{ ((total / 100)+carrier.price)|number_format(2) }}€</a>
-        </div>
-    </div>
-
-{% endblock %}
+    {% endblock %}

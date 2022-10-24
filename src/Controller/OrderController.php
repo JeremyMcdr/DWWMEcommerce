@@ -107,6 +107,7 @@ class OrderController extends AbstractController
                 ]);
         //$this->entityManager->flush();
         }
+        //test
        return  $this->redirectToRoute('app_cart');
     }
 }

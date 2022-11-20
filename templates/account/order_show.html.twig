@@ -34,8 +34,8 @@
     </table>
 
     <div class="text-right">
-        <strong>Sous-total :</strong> {{ (order.getTotal / 100)|number_format(2, ',', '.') }} €<br/>
-        <strong>Livraison :</strong> {{ (order.carrierprice / 100)|number_format(2, ',', '.') }} €<br/>
-        <strong>Total : </strong> {{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',', '.') }} €
+        <strong>Sous-total :</strong> {{ (order.getTotalProduit / 100)|number_format(2, ',', '.') }} €<br/>
+        <strong>Livraison :</strong> {{ (order.carrierprice )|number_format(2, ',', '.') }} €<br/>
+        <strong>Total : </strong> {{ ((order.getTotalProduit / 100) + order.carrierprice)|number_format(2, ',', '.') }} €
     </div>
 {% endblock %}

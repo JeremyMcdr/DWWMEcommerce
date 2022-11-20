@@ -56,6 +56,28 @@ class Order
         return $this->id;
     }
 
+    public function getTotalProduit()
+    {
+        $total = null;
+
+        foreach ($this->getOrderDetails()->getValues() as $product)
+            {
+                $total = $total + ($product->getPrice() * $product->getQuantity());
+            }
+        return $total;
+    }
+
+    public function getTotal()
+    {
+        $total = null;
+
+        foreach ($this->getOrderDetails()->getValues() as $product)
+        {
+            $total = $total + ($product->getPrice() * $product->getQuantity()) + $this->carrierPrice;
+        }
+        return $total;
+    }
+
     public function isIsPaid(): ?bool
     {
         return $this->isPaid;
@@ -182,17 +204,6 @@ class Order
         $this->stripeSessionId = $stripeSessionId;
 
         return $this;
-    }
-
-    public function getTotal()
-    {
-        $total = null;
-
-        foreach ($this->getOrderDetails()->getValues() as $product) {
-            $total = $total + ($product->getPrice() * $product->getQuantity());
-        }
-
-        return $total;
     }
 
 }

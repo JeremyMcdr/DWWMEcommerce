@@ -6,7 +6,6 @@ use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Form\OrderType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -98,6 +97,7 @@ class OrderController extends AbstractController
                 $this->entityManager->persist($orderDetails);
 
             }
+            $this->entityManager->flush();
             return $this->render('order/add.html.twig',
                 [
                     'cart'=>$cart->getFull(),
@@ -105,7 +105,6 @@ class OrderController extends AbstractController
                     'delivery'=>$delivery_content,
                     'reference'=>$order->getReference(),
                 ]);
-        //$this->entityManager->flush();
         }
         //test tests
        return  $this->redirectToRoute('app_cart');

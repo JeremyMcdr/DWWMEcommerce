@@ -43,14 +43,16 @@ class OrderSuccessController extends AbstractController
                     $this->entityManager->flush();
 
                     // Envoyer un email à notre client pour lui confirmer sa commande
-                    $content = 'Hey '.$order->getUser()->getFirstName().'<br> Ta commande est validée voici un debrief : <br> Produits acheté(s) : ' . $order->getDelivery() ;
-                    //$email = new Mail();
-                    //$email->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande La Boutique Francaise est validée !', $content);
+                    $messageMail = "Vous en avez commandé pour : ". $order->getTotal()." € <br> Vous serez livré par :". $order->getCarrierName();
+                    $content = 'Hey '.$order->getUser()->getFirstName().'<br> Ta commande est validée voici un debrief : <br> Produits acheté(s) : ' .  $messageMail;
+
+                    $email = new Mail();
+                    $email->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande La Boutique Francaise est validée !', $content);
 
 
                 }
 
-        dd(($order->getTotal())."€");
+        //dd($varMaikltest);
         return $this->render('order_success/index.html.twig', [
             'order' => $order
         ]);

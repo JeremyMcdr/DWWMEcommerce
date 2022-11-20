@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,9 +29,10 @@ class RegisterController extends AbstractController
     #[Route('/inscription', name: 'app_register')]
     public function index(Request $request, UserPasswordHasherInterface $hasher): Response
     {
-        
+        $notification = null;
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
+
         $form->handleRequest($request);
         //dd($form);
 
@@ -38,21 +40,38 @@ class RegisterController extends AbstractController
         {
             $user = $form->getData();
 
-            $password = $hasher->hashPassword($user,$user->getPassword());
-            $user->setPassword($password);
+            //vérifier si l'utilisateur n'existe pas en base de donnée
+            $seartch_email = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
+            if (!$seartch_email)
+            {
+
+                $password = $hasher->hashPassword($user,$user->getPassword());
+                $user->setPassword($password);
 
 
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
-           
-            //$doctrine = $this->getDoctrine()->getManager();
-            
-            //$doctrine->persist($user);
-            //$doctrine->flush();
-            return $this->redirectToRoute('app_login');
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+                $notification = "Votre inscription s'est correctement passée. Vous pouvez dès à présent vous connecter à votre compte";
+
+                $content = 'Hey '.$user->getFirstName().'<br> Bienvenue sur la boutique du made in france !! <br> Merci beaucoup pour ton inscription sur notre site.';
+                $email = new Mail();
+                $email->send($user->getEmail(),$user->getFirstName(),'Bienvenue sur la boutique Francaise', $content);
+            }else
+            {
+                $notification = "L'email que vous avez renseigné existe déjà";
+            }
+
+
+            //return $this->redirectToRoute('app_login');
+
+            //Envoye du mail de confirmation
+
         }
 
         return $this->render('register/index.html.twig',[
-        'form' => $form->createView()]);
+            'form' => $form->createView(),
+            'notification'=>$notification
+
+        ]);
     }
 }

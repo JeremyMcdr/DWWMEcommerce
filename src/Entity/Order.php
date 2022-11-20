@@ -62,7 +62,7 @@ class Order
 
         foreach ($this->getOrderDetails()->getValues() as $product)
             {
-                $total = $total + ($product->getPrice() * $product->getQuantity());
+                $total = $total + (($product->getPrice()) * $product->getQuantity());
             }
         return $total;
     }
@@ -73,7 +73,7 @@ class Order
 
         foreach ($this->getOrderDetails()->getValues() as $product)
         {
-            $total = $total + ($product->getPrice() * $product->getQuantity()) + $this->carrierPrice;
+            $total = $total + (($product->getPrice()/100) * $product->getQuantity()) + $this->carrierPrice;
         }
         return $total;
     }

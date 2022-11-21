@@ -56,13 +56,14 @@ class RegisterController extends AbstractController
                 $content = 'Hey '.$user->getFirstName().'<br> Bienvenue sur la boutique du made in france !! <br> Merci beaucoup pour ton inscription sur notre site.';
                 $email = new Mail();
                 $email->send($user->getEmail(),$user->getFirstName(),'Bienvenue sur la boutique Francaise', $content);
+                return $this->redirectToRoute('app_login');
             }else
             {
                 $notification = "L'email que vous avez renseigné existe déjà";
             }
 
 
-            //return $this->redirectToRoute('app_login');
+
 
             //Envoye du mail de confirmation
 

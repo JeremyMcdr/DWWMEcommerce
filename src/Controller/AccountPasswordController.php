@@ -41,7 +41,7 @@ class AccountPasswordController extends AbstractController
 
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-                $notification = "Votre mot de passe est mit a jour";
+                $notification = "Votre mot de passe est mit à jour";
             }
             else
             {

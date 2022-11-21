@@ -16,6 +16,7 @@
                 {% for product in products %}
                     <div class="col-md-4">
                         <div class="product-item text-center">
+                            {{ dump(product) }}
                             <a href="{{ path('product' , {'slug' : product.slug}) }}"><img src="/uploads/{{ product.illustration }}" alt="" class="img-fluid"></a>
                             <h5>{{ product.name }}</h5>
                             <span class="product-subtitle">{{ product.subtitle }}</span>

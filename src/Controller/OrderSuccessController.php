@@ -27,10 +27,9 @@ class OrderSuccessController extends AbstractController
 
         $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
 
-                if (!$order || $order->getUser() != $this->getUser()) {
-
+                if (!$order || $order->getUser() != $this->getUser())
+                {
                     return $this->redirectToRoute('home');
-
                 }
 
 
@@ -43,13 +42,13 @@ class OrderSuccessController extends AbstractController
                     $this->entityManager->flush();
 
                     // Envoyer un email à notre client pour lui confirmer sa commande
-                    $messageMail = "Vous en avez commandé pour : ". $order->getTotal()." € <br> Vous serez livré par :". $order->getCarrierName();
+                    //Création de nos variables à injecter dans notre mail
+                    $messageMail = "Vous en avez commandé pour : ". $order->getTotal()." € <br> Vous serez livré par : ". $order->getCarrierName();
                     $content = 'Hey '.$order->getUser()->getFirstName().'<br> Ta commande est validée voici un debrief : <br> Produits acheté(s) : ' .  $messageMail;
 
+                    //Création de notre objet Mail() puis injection de notre message dans ce dernier
                     $email = new Mail();
                     $email->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande La Boutique Francaise est validée !', $content);
-
-
                 }
 
         //dd($varMaikltest);

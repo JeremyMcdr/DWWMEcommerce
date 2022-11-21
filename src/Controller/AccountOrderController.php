@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Order;
+use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,12 +37,13 @@ class AccountOrderController extends AbstractController
     {
         $order = $this->entityManager->getRepository(Order::class)->findOneByReference($reference);
 
+
         if (!$order || $order->getUser() != $this->getUser()) {
             return $this->redirectToRoute('app_account_order');
         }
 
         return $this->render('account/order_show.html.twig', [
-            'order' => $order
+            'order' => $order,
         ]);
     }
 }

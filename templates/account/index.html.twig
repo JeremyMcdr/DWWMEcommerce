@@ -8,6 +8,10 @@
 
     Bienvenue {{app.user.firstname }}, ici nous sommes dans la page compte, c'est ici que vous allez pouvoir administrer vos données...<br>
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-success mt-2" href="/admin">Acceder au backoffice</a><br>
+    {% endif %}
+
     <a class="btn btn-success mt-2" href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br>
     <a class="btn btn-success mt-2" href="{{ path('app_account_address') }}">Gérer mes adresses</a><br>
     <a class="btn btn-success mt-2" href="{{ path('app_account_order') }}">Gérer mes commandes</a><br>

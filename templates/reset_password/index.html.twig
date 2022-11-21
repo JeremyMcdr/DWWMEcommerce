@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié - La Boutique Francaise{% endblock %}
+
+{% block content %}
+    <div class="block-small">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <form method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Réinitialiser mon mot de passe</h1>
+            <label for="inputEmail">Email</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+            <button class="btn btn-lg btn-info mt-4" type="submit">
+                Réinitialiser le mot de passe
+            </button>
+            <hr>
+            <p> Ou souhaitez-vous <a class="text-center" href="{{ path('app_login') }}">Vous connecter</a>?</p>
+        </form>
+    </div>
+{% endblock %}

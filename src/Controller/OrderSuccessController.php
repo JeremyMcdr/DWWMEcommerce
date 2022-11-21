@@ -50,7 +50,6 @@ class OrderSuccessController extends AbstractController
                     $email = new Mail();
                     $email->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande La Boutique Francaise est validée !', $content);
                 }
-
         //dd($varMaikltest);
         return $this->render('order_success/index.html.twig', [
             'order' => $order

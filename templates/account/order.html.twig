@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col">Passée le</th>
                 <th scope="col">Référence</th>
+                <th scope="col">Statut</th>
                 <th scope="col">Produits</th>
                 <th scope="col">Total</th>
                 <th scope="col"></th>
@@ -27,6 +28,15 @@
                 <tr>
                     <td>{{ order.createdAt|date('d/m/Y') }}</td>
                     <td><span class="badge badge-secondary">{{ order.reference }}</span></td>
+                    <td>
+                        {% if order.state == 1 %}
+                        Le payement est validé
+                        {% elseif order.state == 2 %}
+                            Votre commande est en cours de préparation
+                        {% elseif order.state == 3 %}
+                            Votre commande est en cours de livraison
+                        {% endif %}
+                    </td>
                     <td>{{ order.orderDetails|length }}</td>
                     <td>{{  ((order.getTotalProduit / 100) + order.carrierprice)|number_format(2, ',', '.')  }} €</td>
                     <td class="text-right"><a href="{{ path('app_account_order_show', { 'reference' : order.reference }) }}">Voir ma commande</a></td>

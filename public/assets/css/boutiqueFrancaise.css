@@ -71,4 +71,24 @@ main .footer-custom
     margin-top: 22px;
 }
 
+.account-item
+{
+    background-color: #dfe4ea;
+    padding: 70px;
+}
+
+.account-item a
+{
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #0c5460;
+    font-weight: bold;
+}
+.account-item a:hover
+{
+    color: red;
+    text-decoration: none;
+}
+
+
 

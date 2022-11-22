@@ -6,14 +6,29 @@
 {% block content %}
 <h1>Mon compte</h1>
 
-    Bienvenue {{app.user.firstname }}, ici nous sommes dans la page compte, c'est ici que vous allez pouvoir administrer vos données...<br>
-
     {% if is_granted('ROLE_ADMIN') %}
         <a class="btn btn-success mt-2" href="/admin">Acceder au backoffice</a><br>
     {% endif %}
 
-    <a class="btn btn-success mt-2" href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br>
-    <a class="btn btn-success mt-2" href="{{ path('app_account_address') }}">Gérer mes adresses</a><br>
-    <a class="btn btn-success mt-2" href="{{ path('app_account_order') }}">Gérer mes commandes</a><br>
+    Bienvenue {{app.user.firstname }}, ici nous sommes dans la page compte, c'est ici que vous allez pouvoir administrer vos données...<br>
 
+    <hr>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="account-item">
+            <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="account-item">
+            <a href="{{ path('app_account_address') }}">Gérer mes adresses</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="account-item">
+            <a href="{{ path('app_account_order') }}">Gérer mes commandes</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -5,20 +5,22 @@
 
 
 {% block content %}
-<h1>{{ product.name }}</h1>
-    <div class="row">
-        <div class="col-md-5">
-            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
-        </div>
-        <div class="col-md-7 my-auto">
-            <h3>{{ product.name }}</h3>
+    <div>
+        <h1 style="padding-top: 35px">{{ product.name }}</h1>
+            <div class="row mt-5">
+                <div class="col-md-5">
+                    <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
+                </div>
+            <div class="col-md-7 my-auto">
+                <h3>{{ product.name }}</h3>
             <p>{{ product.subtitle }}</p>
-            <span class="product-single-page">{{ product.price / 100|number_format(2) }}€</span>
+                <span class="product-single-page">{{ product.price / 100|number_format(2) }}€</span>
             <hr>
-            <p>
-                {{ product.description }}
-            </p>
-            <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+                <p>
+                    {{ product.description }}
+                </p>
+                <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+            </div>
         </div>
     </div>
 {% endblock %}

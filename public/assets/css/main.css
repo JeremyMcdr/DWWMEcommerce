@@ -1,0 +1,58 @@
+#test
+{
+    background-color: #d3d1d1;
+}
+
+#item-navbar
+{
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-transform : uppercase;
+}
+a
+{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+a:hover
+{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+body
+{
+    background-color: #21293D;
+}
+
+header
+{
+    background-color: #21293D;
+}
+
+#mon-filtre
+{
+    background-color: white;
+    margin-top: 10px;
+}
+
+
+/*
+    Mon Pannier
+*/
+
+#cart-sign-moins
+{
+
+}
+
+#cart-sign-plus
+{
+
+}
+
+#bouton-valider
+{
+    background-color: #21293D;
+}

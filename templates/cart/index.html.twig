@@ -28,13 +28,14 @@
             <small>{{ product.product.subtitle }}</small>
             </td>
             <td>
-                <a href="{{ path('decrease_to_cart' , {id : product.product.id} )}}">
-                    <img src="{{ asset('assets/img/minus-sign.png') }}" height="12px" alt="Retirer un produit">
+                <a href="{{ path('decrease_to_cart' , {id : product.product.id} )}}" id="cart-sign-moins">
+                    <img src="{{ asset('assets/img/minus-sign.png') }}"  width="2%" alt="Retirer un produit">
                 </a>
-           {{ product.quantity }}
 
-                <a href="{{ path('add_to_cart' , {id : product.product.id} )}}">
-                    <img src="{{ asset('assets/img/plus-symbole-noir.png') }}" height="12px" alt="Ajouter un produit">
+                {{ product.quantity }}
+
+                <a href="{{ path('add_to_cart' , {id : product.product.id} )}}" id="cart-sign-plus">
+                    <img src="{{ asset('assets/img/plus-symbole-noir.png') }}" width="2%" alt="Ajouter un produit">
                 </a>
             </td>
 
@@ -55,7 +56,7 @@
         <b>Nombre de produit :</b> {{ cart|length }}<br>
         <b>Total de mon panier :</b> {{ (total) / 100|number_format(2) }}€
         <hr>
-        <a href="{{ path('app_order') }}" class="btn btn-success btn-block mt-3">Valider mon panier</a>
+        <a href="{{ path('app_order') }}" class="btn btn-success btn-block mt-3" id="bouton-valider">Valider mon panier</a>
     </div>
     {% else %}
     <hr>

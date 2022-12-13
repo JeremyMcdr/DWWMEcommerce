@@ -56,9 +56,11 @@ main .footer-custom
     margin: 0 auto;
 }
 
+/*Formulaire de trie*/
+
 .form-check
 {
-    background-color: #c6e7ff;
+    background-color: white;
     color: black;
     padding: 20px 65px;
     margin-top: 7px;

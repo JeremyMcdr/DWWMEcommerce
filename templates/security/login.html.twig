@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="block-small">
-    <form method="post">
+    <form method="post" class="mt-5">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -46,8 +46,8 @@
             Se connecter
         </button>
         <hr>
-        <p><a class="text-center" href="{{ path('app_reset_password') }}">Mot de passe oublié</a>?</p>
-        <p> Ou souhaitez-vous <a class="text-center" href="{{ path('app_register') }}">Créer un compte</a>?</p>
+        <p><strong><a class="text-center" style="color: black" href="{{ path('app_reset_password') }}">Mot de passe oublié</a></strong> ?</p>
+        <p> Ou souhaitez-vous <strong><a style="color: black" class="text-center" href="{{ path('app_register') }}">Créer un compte</a></strong> ?</p>
     </form>
 </div>
 {% endblock %}

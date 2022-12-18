@@ -23,24 +23,7 @@
         </div>
 
 
-            <div class="order-summary">
-            {% for key in cart %}
 
-                <div class="row{% if key > 0 %}mt-2{% endif %} ">
-                    <div class="col-2">
-                        <img src="/uploads/{{key.product.illustration }}" alt="{{ key.product.name }}" height="100px">
-                    </div>
-                    <div class="col-8">
-                        {{ key.product.name }}
-                        <small>{{ key.product.subtitle }}</small>
-                    </div>
-                    <div class="col-2">
-                        x {{ key.quantity }}
-                    </div>
-                </div>
-
-            {% endfor %}
-        </div>
         <br>
     </div>
     </div>

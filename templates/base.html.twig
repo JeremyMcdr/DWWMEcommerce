@@ -82,40 +82,93 @@
 </header>
 -->
 
-<header class="header">
-    <a href="{{ path('app_home') }}"><img class="header_logo" src="{{ asset('assets/img/logo.png') }}"style="width: 5%"  alt="Logo Orbis Meta"></a>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
-        <li class="mon_txt_header bold_header"><a href="{{ path('app_home') }}">Accueil</a></li>
-        <li class="mon_txt_header"><a href="{{ path('products') }}">Nos Produits</a></li>
-        <li class="mon_txt_header"><a href="{{ path('app_contact') }}">Nous Contacter</a></li>
-        <li class="mon_txt_header border_contact">
-            {% if app.user %}
-            <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a> |
-        </li>
-        <li class="mon_txt_header">
-            <a class="" href="{{ path('app_logout') }}">
-                Déconnexion
-            </a>
-            {% else %}
-            <a class="" href="{{ path('app_login') }}">
-                Connexion
-            </a>
-        </li>
-        <li class="mon_txt_header">
-            |
-        </li>
-        <li class="mon_txt_header">
-            <a class="" href="{{ path('app_register') }}">Inscription</a>
-            {% endif %}
-        </li>
-        <li>
-            <a href="{{ path('app_cart') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier"></a>
-        </li>
-        <!--<li class="mon_txt_header border_enfr"><a href="./en/">EN</a></li>-->
-    </ul>
-</header>
+
+{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PREPARATEUR')%}
+
+    <header class="header">
+        <a href="{{ path('app_home') }}"><img class="header_logo" src="{{ asset('assets/img/logo.png') }}"style="width: 5%"  alt="Logo Orbis Meta"></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li class="mon_txt_header border_contact">
+                {% if app.user %}
+                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a> |
+            </li>
+            <li class="mon_txt_header">
+                <a class="" href="{{ path('app_logout') }}">
+                    Déconnexion
+                </a>
+
+                <li class="mon_txt_header">
+                <a href="{{ path('app_stock_gestion') }}">Gestion</a>
+                </li>
+
+                <li class="mon_txt_header">
+                <a href="{{ path('app_account') }}">Mon compte</a>
+                </li>
+
+                {% else %}
+                <a class="" href="{{ path('app_login') }}">
+                    Connexion
+                </a>
+            </li>
+            <li class="mon_txt_header">
+                |
+            </li>
+            <li class="mon_txt_header">
+                <a class="" href="{{ path('app_register') }}">Inscription</a>
+                {% endif %}
+            </li>
+            <li>
+                <a href="{{ path('app_cart') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier"></a>
+            </li>
+            <!--<li class="mon_txt_header border_enfr"><a href="./en/">EN</a></li>-->
+        </ul>
+    </header>
+
+{% else %}
+
+    <header class="header">
+        <a href="{{ path('app_home') }}"><img class="header_logo" src="{{ asset('assets/img/logo.png') }}"style="width: 5%"  alt="Logo Orbis Meta"></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li class="mon_txt_header bold_header"><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="mon_txt_header"><a href="{{ path('products') }}">Nos Produits</a></li>
+            <li class="mon_txt_header"><a href="{{ path('app_contact') }}">Nous Contacter</a></li>
+            <li class="mon_txt_header">
+            </li>
+            <li class="mon_txt_header border_contact">
+                {% if app.user %}
+                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a> |
+            </li>
+            <li class="mon_txt_header">
+                <a class="" href="{{ path('app_logout') }}">
+                    Déconnexion
+                </a>
+
+
+                {% else %}
+                <a class="" href="{{ path('app_login') }}">
+                    Connexion
+                </a>
+            </li>
+            <li class="mon_txt_header">
+                |
+            </li>
+            <li class="mon_txt_header">
+                <a class="" href="{{ path('app_register') }}">Inscription</a>
+                {% endif %}
+            </li>
+            <li>
+                <a href="{{ path('app_cart') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier"></a>
+            </li>
+            <!--<li class="mon_txt_header border_enfr"><a href="./en/">EN</a></li>-->
+        </ul>
+    </header>
+
+{% endif %}
+
 
 <main role="main">
 {% if block('carousel') is defined %}
@@ -157,9 +210,11 @@
     <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %} col-12" style="background-color: white; padding-left: 0px;padding-right: 0px;">
 
         <!-- Three columns of text below the carousel -->
+
+        <div class="container">
         {% block content %}
         {% endblock %}
-
+        </div>
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->

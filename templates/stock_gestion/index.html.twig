@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des stocks{% endblock %}
+
+{% block content %}
+
+    <h1> Interface de gestion des stocks</h1>
+
+
+    Gestion des commandes
+
+        <table class="table mt-4">
+            <thead>
+            <tr>
+                <th scope="col">Passée le</th>
+                <th scope="col">Référence</th>
+                <th scope="col">Statut</th>
+                <th scope="col">Produits</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+                {% if order.state == 1 or  order.state == 2 or order.state == 3%}
+                <tr>
+                    <td>{{ order.createdAt|date('d/m/Y') }}</td>
+                    <td><span class="badge badge-secondary">{{ order.reference }}</span></td>
+                    <td>
+                        {% if order.state == 1 %}
+                            Le payement est validé
+                        {% elseif order.state == 2 %}
+                            Votre commande est en cours de préparation
+                        {% elseif order.state == 3 %}
+                            Votre commande est en cours de livraison
+                            {% else %}
+                            Paiement refusée
+                        {% endif %}
+                    </td>
+                    <td>{{ order.orderDetails|length }}</td>
+                    <td>{{  ((order.getTotalProduit / 100) + order.carrierprice)|number_format(2, ',', '.')  }} €</td>
+                    <td class="text-right"><a style="color: black" href="{{ path('app_stock_gestion_edit', { 'reference' : order.reference }) }}">Voir la commande</a></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commandes - La Boutique Française{% endblock %}
+
+{% block content %}
+    <h2 class="mt-5">Numéro de commande {{ order.reference }}</h2>
+
+
+    <a href="{{ path('app_account_order') }}">Retour</a>
+    <br/>
+
+    <strong>Statut de la commande :</strong>
+    {% if order.state == 1 %}
+        Le payement est validé
+    {% elseif order.state == 2 %}
+        La commande est en cours de préparation
+    {% elseif order.state == 3 %}
+        La commande est en cours de livraison
+    {% endif %}
+    <br/>
+
+
+    <div class="block-small">
+        <h1 class="h3 mb-3 font-weight-normal">Modification du statut de la commande</h1>
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        Mettre à jour l'état de la commande :
+        {{ form(form) }}
+    </div>
+
+    <strong>Référence de ma commande :</strong> <small>{{ order.reference }}</small><br/>
+{% endblock %}

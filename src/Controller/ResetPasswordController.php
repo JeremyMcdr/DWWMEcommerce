@@ -90,7 +90,7 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('app_reset_password');
         }
 
-        //rendre une vue avec mot de passe et confiermez votre mot de passe
+        //rendre une vue avec mot de passe et confirmé votre mot de passe
         $form = $this->createForm(ResetPasswordType::class);
         $form->handleRequest($request);
 

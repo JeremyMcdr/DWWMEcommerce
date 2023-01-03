@@ -83,16 +83,17 @@
 -->
 
 
-{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PREPARATEUR')%}
+{% if is_granted('ROLE_PREPARATEUR')%}
 
     <header class="header">
+
         <a href="{{ path('app_home') }}"><img class="header_logo" src="{{ asset('assets/img/logo.png') }}"style="width: 5%"  alt="Logo Orbis Meta"></a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu">
             <li class="mon_txt_header border_contact">
                 {% if app.user %}
-                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a> |
+                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>
             </li>
             <li class="mon_txt_header">
                 <a class="" href="{{ path('app_logout') }}">
@@ -112,16 +113,16 @@
                     Connexion
                 </a>
             </li>
-            <li class="mon_txt_header">
-                |
-            </li>
+
             <li class="mon_txt_header">
                 <a class="" href="{{ path('app_register') }}">Inscription</a>
+
+            </li>
+                    <li>
+                        <a href="{{ path('app_cart') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier"></a>
+                    </li>
                 {% endif %}
-            </li>
-            <li>
-                <a href="{{ path('app_cart') }}"><img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier"></a>
-            </li>
+
             <!--<li class="mon_txt_header border_enfr"><a href="./en/">EN</a></li>-->
         </ul>
     </header>
@@ -140,7 +141,7 @@
             </li>
             <li class="mon_txt_header border_contact">
                 {% if app.user %}
-                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a> |
+                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>
             </li>
             <li class="mon_txt_header">
                 <a class="" href="{{ path('app_logout') }}">
@@ -153,9 +154,7 @@
                     Connexion
                 </a>
             </li>
-            <li class="mon_txt_header">
-                |
-            </li>
+
             <li class="mon_txt_header">
                 <a class="" href="{{ path('app_register') }}">Inscription</a>
                 {% endif %}
@@ -207,15 +206,15 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %} col-12" style="background-color: white; padding-left: 0px;padding-right: 0px;">
+    <div class="container {% if block('carousel') is not defined %}mt-5{% endif %} col-12" style="background-color: white; padding-left: 0;padding-right: 0;">
 
         <!-- Three columns of text below the carousel -->
+        <div class="container col-12" style="padding-left: 0;padding-right: 0">
+            {% block content %}
 
-        <div class="container">
-        {% block content %}
-        {% endblock %}
+            {% endblock %}
         </div>
-        <hr class="featurette-divider">
+
 
         <!-- /END THE FEATURETTES -->
 
@@ -223,7 +222,7 @@
 
     <!-- FOOTER -->
     <footer class="footer-custom">
-        <p>&copy; 2022-2022 La Boutique Francaise &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p class="footer-p">&copy; 2022-2022 La Boutique Francaise &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

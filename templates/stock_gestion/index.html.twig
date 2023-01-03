@@ -22,17 +22,19 @@
             </thead>
             <tbody>
             {% for order in orders %}
-                {% if order.state == 1 or  order.state == 2 or order.state == 3%}
+
+                <!--Ce filtre permet d'afficher les commandes qui on un statut "en preparation" et "est validée"-->
+                {% if order.state == 1 or  order.state == 2 %}
                 <tr>
                     <td>{{ order.createdAt|date('d/m/Y') }}</td>
                     <td><span class="badge badge-secondary">{{ order.reference }}</span></td>
                     <td>
                         {% if order.state == 1 %}
-                            Le payement est validé
+                            Payement est validé
                         {% elseif order.state == 2 %}
-                            Votre commande est en cours de préparation
+                            Commande est en cours de préparation
                         {% elseif order.state == 3 %}
-                            Votre commande est en cours de livraison
+                            Commande est en cours de livraison
                             {% else %}
                             Paiement refusée
                         {% endif %}

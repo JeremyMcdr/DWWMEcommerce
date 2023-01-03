@@ -926,13 +926,7 @@ margin-right: 20%;
 .mon_txt_footer {
   font-weight: 300;
   font-size: 15px;
-  margin: 15px 0px 15px 0px;
   opacity: 0.65;
-}
-
-.footer {
-  align-items: start;
-  margin: auto;
 }
 
 .mon_txt_copyright {
@@ -1390,7 +1384,7 @@ a:active {
 
   .menu {
     margin-top: 54px;
-
+    z-index: 12;
   }
 
   .header ul {

@@ -17,12 +17,15 @@ body
 main .footer-custom
 {
     text-align: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #21293D;
     padding-top: 25px;
 }
+main .contenue
+{
+    background-color: #21293D;
+}
+
 .product-item
 {
     margin-top: 15px;
@@ -94,5 +97,24 @@ main .footer-custom
     text-decoration: none;
 }
 
+hr
+{
+    position: absolute;
+    z-index: 1;
+    background-color: #0c4a6e;
+    width: 100%;
+}
+
+/*Gestion de mes polices d'écritures*/
+p
+{
+    font-size: 10px;
+}
+
+.footer-p
+{
+    margin-bottom: 0;
+    font-size: 1em;
+}
 
 

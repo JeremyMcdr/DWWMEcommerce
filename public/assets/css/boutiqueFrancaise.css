@@ -118,3 +118,10 @@ p
 }
 
 
+
+.drop-shadow:hover
+{
+    filter: blur(2px);
+ }
+
+

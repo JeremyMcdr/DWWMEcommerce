@@ -110,18 +110,41 @@ p
 {
     font-size: 10px;
 }
+span
+{
+    color: black;
+}
 
 .footer-p
 {
     margin-bottom: 0;
     font-size: 1em;
+    color: black;
+}
+
+h1.gestion
+{
+    color: black;
+}
+p.gestion
+{
+    color: black;
 }
 
 
 
+/* Effet au passage de la souris sur les produits */
 .drop-shadow:hover
 {
     filter: blur(2px);
  }
+
+
+/* Page d'accueil*/
+
+.lead
+{
+    color: white;
+}
 
 

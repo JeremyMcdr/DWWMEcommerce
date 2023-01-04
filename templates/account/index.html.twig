@@ -1,37 +1,41 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Mon compte - La boutique Francaise{% endblock %}
+{% block title %}Mon compte{% endblock %}
 
 {% block content %}
-<h1>Mon compte</h1>
+    <div class="container">
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <a class="btn btn-success mt-2" href="/admin">Acceder au backoffice</a><br>
-    {% endif %}
+        <h2>Mon compte</h2>
 
-    Bienvenue {{app.user.firstname }}, ici nous sommes dans la page compte, c'est ici que vous allez pouvoir administrer vos données...<br>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-success mt-2" href="/admin">Acceder au backoffice</a><br>
+        {% endif %}
 
-    <hr>
+        <p>Bienvenue {{ app.user.firstname }}, ici nous sommes dans la page compte, c'est ici que vous allez pouvoir
+        administrer vos données...
+        </p>
+        <br>
 
-
-<div class="row">
-    <div class="col-md-4">
-        <div class="account-item">
-            <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="account-item">
+                <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a>
+            </div>
         </div>
-    </div>
     {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') and not is_granted('ROLE_PREPARATEUR') %}
-    <div class="col-md-4">
-        <div class="account-item">
-            <a href="{{ path('app_account_address') }}">Gérer mes adresses</a>
+                <div class="col-md-4">
+                    <div class="account-item">
+                        <a href="{{ path('app_account_address') }}">Gérer mes adresses</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="account-item">
+                        <a href="{{ path('app_account_order') }}">Gérer mes commandes</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="account-item">
-            <a href="{{ path('app_account_order') }}">Gérer mes commandes</a>
-        </div>
-    </div>
-</div>
     {% endif %}
 {% endblock %}

@@ -21,15 +21,25 @@
 
 
     <div class="block-small">
-        <h1 class="h3 mb-3 font-weight-normal">Modification du statut de la commande</h1>
+        <h1 class="h3 mb-3 font-weight-normal gestion">Modification du statut de la commande</h1>
         {% for message in app.flashes('notice') %}
-            <div class="alert alert-info">{{ message }}</div>
+            <div class="alert alert-info"><p class="gestion">{{ message }}</p></div>
         {% endfor %}
         {% for message in app.flashes('notice') %}
-            <div class="alert alert-info">{{ message }}</div>
+            <div class="alert alert-info"><p class="gestion">{{ message }}</p></div>
         {% endfor %}
-        Mettre à jour l'état de la commande :
-        {{ form(form) }}
+        <p class="gestion">Mettre à jour l'état de la commande :</p>
+
+        {{ form_start(form) }}
+        <p class="gestion">
+            Définir l'état de la commande
+        </p>
+
+        {{ form_row(form.state) }}
+
+        {{ form_row(form.submit) }}
+
+        {{ form_end(form) }}
     </div>
 
     <strong>Référence de ma commande :</strong> <small>{{ order.reference }}</small><br/>

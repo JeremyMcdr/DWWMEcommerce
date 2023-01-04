@@ -136,9 +136,7 @@
         <ul class="menu">
             <li class="mon_txt_header bold_header"><a href="{{ path('app_home') }}">Accueil</a></li>
             <li class="mon_txt_header"><a href="{{ path('products') }}">Nos Produits</a></li>
-            <li class="mon_txt_header"><a href="{{ path('app_contact') }}">Nous Contacter</a></li>
-            <li class="mon_txt_header">
-            </li>
+            <!--<li class="mon_txt_header"><a href="{{ path('app_contact') }}">Nous Contacter</a></li>-->
             <li class="mon_txt_header border_contact">
                 {% if app.user %}
                 <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>

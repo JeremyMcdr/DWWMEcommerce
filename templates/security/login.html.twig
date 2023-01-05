@@ -3,7 +3,8 @@
 {% block title %}Log in!{% endblock %}
 
 {% block content %}
-<div class="block-small">
+<div class="container register">
+    <div class="formulaire-register" style="text-align: center">
     <form method="post" class="mt-5">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -45,9 +46,9 @@
         <button class="btn btn-lg btn-info" type="submit">
             Se connecter
         </button>
-        <hr>
         <p><strong><a class="text-center" style="color: black" href="{{ path('app_reset_password') }}">Mot de passe oublié</a></strong> ?</p>
         <p> Ou souhaitez-vous <strong><a style="color: black" class="text-center" href="{{ path('app_register') }}">Créer un compte</a></strong> ?</p>
     </form>
+    </div>
 </div>
 {% endblock %}

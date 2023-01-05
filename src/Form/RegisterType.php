@@ -18,15 +18,12 @@ class RegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class,[ 'label'=>'Votre Prenom','constraints'=>new Length(['min' => 2, 'max'=>30]), 'attr'=>[
-                'placeholder' => 'Merci de saisir votre prénom']
+            ->add('firstname', TextType::class,[ 'label'=>'Votre Prenom','constraints'=>new Length(['min' => 2, 'max'=>30])
             ])
-            ->add('lastname', TextType::class,[ 'label'=>'Votre Nom', 'attr'=>[
-                'placeholder' => 'Merci de saisir votre Nom']
+            ->add('lastname', TextType::class,[ 'label'=>'Votre Nom'
             ])
             
-            ->add('email', EmailType::class,[ 'label'=>'Votre Email', 'attr'=>[
-                'placeholder' => 'Merci de saisir votre email']
+            ->add('email', EmailType::class,[ 'label'=>'Votre Email',
             ])
             
             ->add('password', RepeatedType::class,[
@@ -35,15 +32,9 @@ class RegisterType extends AbstractType
                 'label'=>true,
                 'first_options'=>[
                     'label'=>'Mot De Passe',
-                    'attr'=>[
-                        'placeholder'=>'Merci de saisir votre mdp'
-                    ]
                 ],
             'second_options'=>[
                 'label'=>'Confirmez votre mot de passe',
-                'attr'=>[
-                    'placeholder'=>'Mot de passe'
-            ]
             ]
     ])
 

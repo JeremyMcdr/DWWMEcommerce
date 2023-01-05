@@ -8,19 +8,9 @@ body
     color: #ffffff;
 }
 
-body
-{
-    background-color: #ffffff;
-}
 
 
-main .footer-custom
-{
-    text-align: center;
-    width: 100%;
-    background-color: #21293D;
-    padding-top: 25px;
-}
+
 main .contenue
 {
     background-color: #21293D;
@@ -115,12 +105,7 @@ span
     color: black;
 }
 
-.footer-p
-{
-    margin-bottom: 0;
-    font-size: 1em;
-    color: black;
-}
+
 
 h1.gestion
 {
@@ -130,6 +115,79 @@ p.gestion
 {
     color: black;
 }
+
+
+
+/*Formulaire*/
+.container.register
+{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 0px)and (max-width: 800px) {
+    .container.register {
+        padding-bottom: 1px;
+    }
+    .formulaire-register
+    {
+        height: auto;
+    }
+
+    input[type=text] {
+        width: 50%;
+    }
+    input[type=email] {
+        width: 50%;
+    }
+    input[type=password] {
+        width: 50%;
+    }
+    .form-control
+    {
+        text-align: center;
+        margin: auto;
+    }
+}
+
+/*Formulaire de login*/
+.formulaire-login
+{
+    text-align: center;
+}
+@media only screen and (min-width: 0px)and (max-width: 800px)
+{
+    .formulaire-register
+    {
+        height: auto;
+    }
+}
+
+
+/*Titre h2*/
+h2
+{
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0;
+}
+
+@media only screen and (min-width: 0px)and (max-width: 900px) {
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1920px){
+    h2 {
+        font-size: 40px;
+    }
+}
+
+
+
+
+/*Titre h3*/
 
 
 
@@ -147,4 +205,29 @@ p.gestion
     color: white;
 }
 
+
+/*Footer*/
+footer
+{
+    min-height: 10px;
+    max-height: 10px;
+}
+
+.footer-p
+{
+    margin-bottom: 0;
+    font-size: 1em;
+    color: black;
+    background-color: #21293D;
+}
+
+.footer-custom
+{
+    text-align: center;
+    width: 100%;
+    background-color: #21293D;
+    padding-top: 25px;
+    position: absolute;
+    bottom: 20px;
+}
 

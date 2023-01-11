@@ -7,14 +7,14 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-2" id="mon-filtre">
+            <div class="col-md-2 mt-5" id="mon-filtre">
                 <h3>Filtrer</h3>
                 <div class="mt-4">{{ form(form) }}</div>
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-10 mt-5">
                 <h3>Nos produits</h3>
-                <div class="row">
+                <div class="row  animate__animated animate__fadeIn">
                     {% for product in products %}
                         <div class="col-md-3" >
                             {% include 'product/single_product.html.twig' %}

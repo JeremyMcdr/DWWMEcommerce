@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block content %}
-<div class="container register">
+<div class="container register mt-5">
     <div class="formulaire-register" style="text-align: center">
     <form method="post" class="mt-5">
         {% if error %}
@@ -20,7 +20,7 @@
             </div>
         {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 font-weight-normal ">Please sign in</h1>
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
         <label for="inputPassword">Password</label>

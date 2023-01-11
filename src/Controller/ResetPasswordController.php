@@ -54,7 +54,7 @@ class ResetPasswordController extends AbstractController
                 $url = $this->generateUrl('app_update_password',[
                     'token' => $reset_password->getToken()]);
 
-                $content = "Bonjour".$user->getFirstName()."<br> Vous avez demandé à réinitialiser votre mot de passe sur le site de la Boutique Francaise<br><br>";
+                $content = "Bonjour".$user->getFirstName()."<br> Vous avez demandé à réinitialiser votre mot de passe sur le site de The French Boutique<br><br>";
 
                 $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href='https://macadre.fr".$url."'>mettre à jour le mot de passe</a>.";
 

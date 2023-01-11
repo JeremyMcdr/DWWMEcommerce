@@ -53,9 +53,9 @@ class RegisterController extends AbstractController
                 $this->entityManager->flush();
                 $notification = "Votre inscription s'est correctement passée. Vous pouvez dès à présent vous connecter à votre compte";
 
-                $content = 'Hey '.$user->getFirstName().'<br> Bienvenue sur la boutique du made in france !! <br> Merci beaucoup pour ton inscription sur notre site.';
+                $content = 'Hey '.$user->getFirstName().'<br> Bienvenue sur la boutique du made in france !! <br> Merci beaucoup pour votre inscription sur notre site.';
                 $email = new Mail();
-                $email->send($user->getEmail(),$user->getFirstName(),'Bienvenue sur la boutique Francaise', $content);
+                $email->send($user->getEmail(),$user->getFirstName(),'Bienvenue sur The French Boutique', $content);
                 return $this->redirectToRoute('app_login');
             }else
             {

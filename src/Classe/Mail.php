@@ -18,7 +18,7 @@ class Mail
                 [
                     'From' => [
                         'Email' => "jeremymacadre@gmail.com",
-                        'Name' => "La Boutique Française"
+                        'Name' => "The French Boutique"
                     ],
                     'To' => [
                         [

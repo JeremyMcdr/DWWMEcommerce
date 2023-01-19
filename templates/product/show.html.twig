@@ -5,7 +5,8 @@
 
 
 {% block content %}
-    <div>
+    <div class="container"  style="display: flex; flex-direction: row">
+    <div class="pannier">
         <h1 style="padding-top: 35px">{{ product.name }}</h1>
             <div class="row mt-5">
                 <div class="col-md-5">
@@ -18,8 +19,9 @@
                 <p>
                     {{ product.description }}
                 </p>
-                <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="btn btn-primary my-custom-class">Ajouter au panier</a>
+                <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="btn btn-primary my-custom-class ajouterPannierBtn">Ajouter au panier</a>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

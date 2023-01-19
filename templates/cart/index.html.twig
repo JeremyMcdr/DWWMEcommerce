@@ -3,7 +3,8 @@
 {% block title %}Mon Panier - The French Boutique{% endblock %}
 
 {% block content %}
-
+<div class="container" style="display: flex; flex-direction: row">
+    <div class="pannier">
 <h1>Mon panier</h1>
     Vous retrouverez ici l'ensemble des articles que vous avez commandés
 
@@ -55,11 +56,17 @@
     <div class="text-right mb-5">
         <b>Nombre de produit :</b> {{ cart|length }}<br>
         <b>Total de mon panier :</b> {{ (total) / 100|number_format(2) }}€
-        <hr>
+
+        <div>
         <a href="{{ path('app_order') }}" class="btn btn-success btn-block mt-3" id="bouton-valider">Valider mon panier</a>
+        </div>
     </div>
+
     {% else %}
-    <hr>
+        <div class="pannierVide">
         <p>Votre panier est vide</p>
+        </div>
         {% endif %}
+    </div>
+</div>
 {% endblock %}

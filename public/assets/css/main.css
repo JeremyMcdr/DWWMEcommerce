@@ -1,3 +1,18 @@
+.my-custom-class
+{
+    background-color: #21293D;
+}
+
+.my-custom-class:hover
+{
+    background-color: #0d1218;
+}
+
+.my-custom-class:checked
+{
+    background-color: red;
+}
+
 #test
 {
     background-color: #d3d1d1;
@@ -54,4 +69,9 @@ header
 #bouton-valider
 {
     background-color: #21293D;
+}
+
+.pannierVide
+{
+    margin: 100px;
 }

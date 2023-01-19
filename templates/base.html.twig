@@ -208,7 +208,7 @@
     <div class="container {% if block('carousel') is not defined %}mt-5{% endif %} col-12" style="background-color: white; padding-left: 0;padding-right: 0;">
 
         <!-- Three columns of text below the carousel -->
-        <div class="container col-12" style="padding-left: 0;padding-right: 0">
+        <div class="container col-12" style="padding-left: 0;padding-right: 0 ">
             {% block content %}
 
             {% endblock %}
@@ -222,10 +222,11 @@
     <!-- FOOTER -->
 
 </main>
-<footer class="footer-custom">
+<footer class="footer-custom animate__animated element-to-fadeIn">
     <p class="footer-p">&copy; 2023-2024 - The French Boutique &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="{{ asset('assets/js/animation.js') }}></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>
 </body>
 </html>

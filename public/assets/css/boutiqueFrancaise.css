@@ -237,3 +237,29 @@ footer
     bottom: 20px;
 }
 
+/*Account*/
+
+.account-index
+{
+    padding-top: 200px;
+    padding-bottom: 250px;
+}
+
+.account-index p
+{
+    font-size: medium;
+}
+
+/*Panier*/
+
+.pannier
+{
+
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1920px){
+    .pannier {
+        margin-top: 150px;
+    }
+
+}

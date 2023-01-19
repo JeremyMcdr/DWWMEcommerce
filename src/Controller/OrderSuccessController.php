@@ -29,7 +29,7 @@ class OrderSuccessController extends AbstractController
 
                 if (!$order || $order->getUser() != $this->getUser())
                 {
-                    return $this->redirectToRoute('home');
+                    return $this->redirectToRoute('app_home');
                 }
 
 

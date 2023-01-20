@@ -994,40 +994,42 @@ margin-right: 20%;
 }
 
 /* FIN CONTACT FORM */
-/* FIN LANDING ELLIOTT */
+/* FIN LANDING  */
 
 /* BALISE A */
-a {
+.menua {
   text-decoration: none;
   color: white;
 
 }
 
-a:link {
+.menua:link {
   color: white;
   text-decoration: none;
 }
 
-a:visited {
+.menua:visited {
   text-decoration: none;
   color: white;
 }
 
-a:focus {
+.menua:focus {
   text-decoration: none;
   color: white;
 }
 
-a:hover {
+.menua:hover {
   text-decoration: none;
   color: white;
 
 }
 
-a:active {
+.menua:active {
   text-decoration: none;
   color: white;
 }
+
+
 
 /* FIN BALISE A */
 

@@ -28,12 +28,10 @@
 a
 {
     text-decoration: none;
-    color: #FFFFFF;
 }
 a:hover
 {
     text-decoration: none;
-    color: #FFFFFF;
 }
 
 body
@@ -74,4 +72,15 @@ header
 .pannierVide
 {
     margin: 100px;
+}
+
+/*All*/
+.simpleBtn
+{
+    color: #041a23;
+}
+
+.simpleBtn:hover
+{
+    color: #041a23;
 }

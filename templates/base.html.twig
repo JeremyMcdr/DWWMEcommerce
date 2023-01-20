@@ -94,29 +94,29 @@
         <ul class="menu">
             <li class="mon_txt_header border_contact">
                 {% if app.user %}
-                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>
+                <a class="menua" href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>
             </li>
             <li class="mon_txt_header">
-                <a class="" href="{{ path('app_logout') }}">
+                <a class="menua" href="{{ path('app_logout') }}">
                     Déconnexion
                 </a>
 
-                <li class="mon_txt_header">
+                <li class="mon_txt_header menua">
                 <a href="{{ path('app_stock_gestion') }}">Gestion</a>
                 </li>
 
                 <li class="mon_txt_header">
-                <a href="{{ path('app_account') }}">Mon compte</a>
+                <a class="menua" href="{{ path('app_account') }}">Mon compte</a>
                 </li>
 
                 {% else %}
-                <a class="" href="{{ path('app_login') }}">
+                <a class="menua" href="{{ path('app_login') }}">
                     Connexion
                 </a>
             </li>
 
             <li class="mon_txt_header">
-                <a class="" href="{{ path('app_register') }}">Inscription</a>
+                <a class="menua" href="{{ path('app_register') }}">Inscription</a>
 
             </li>
                     <li>
@@ -135,27 +135,27 @@
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu">
-            <li class="mon_txt_header bold_header"><a href="{{ path('app_home') }}">Accueil</a></li>
-            <li class="mon_txt_header"><a href="{{ path('products') }}">Nos Produits</a></li>
+            <li class="mon_txt_header bold_header "><a class="menua" href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="mon_txt_header "><a class="menua" href="{{ path('products') }}">Nos Produits</a></li>
             <!--<li class="mon_txt_header"><a href="{{ path('app_contact') }}">Nous Contacter</a></li>-->
             <li class="mon_txt_header border_contact">
                 {% if app.user %}
-                <a href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>
+                <a class="menua" href="{{ path('app_account') }}">Mon Compte ({{ app.user.firstname }})</a>
             </li>
             <li class="mon_txt_header">
-                <a class="" href="{{ path('app_logout') }}">
+                <a class="menua" href="{{ path('app_logout') }}">
                     Déconnexion
                 </a>
 
 
                 {% else %}
-                <a class="" href="{{ path('app_login') }}">
+                <a class="menua" href="{{ path('app_login') }}">
                     Connexion
                 </a>
             </li>
 
             <li class="mon_txt_header">
-                <a class="" href="{{ path('app_register') }}">Inscription</a>
+                <a class="menua" href="{{ path('app_register') }}">Inscription</a>
                 {% endif %}
             </li>
             <li>

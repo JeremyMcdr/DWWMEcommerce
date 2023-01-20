@@ -269,3 +269,14 @@ footer
     margin-bottom: 75px;
     background-color: #0c4a6e;
 }
+
+/*All*/
+.simpleBtn
+{
+    color: #0c4a6e;
+}
+
+.simpleBtn:hover
+{
+    color: #041a23;
+}
